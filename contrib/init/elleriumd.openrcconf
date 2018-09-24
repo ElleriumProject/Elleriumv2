@@ -1,0 +1,26 @@
+# /etc/conf.d/elleriumd: config file for /etc/init.d/elleriumd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/ellerium/ellerium.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/elleriumd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/elleriumd.pid"
+
+# Where to write elleriumd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/elleriumd"
+
+# User and group to own elleriumd process
+#BITCOIND_USER="ellerium"
+#BITCOIND_GROUP="ellerium"
+
+# Path to elleriumd executable
+#BITCOIND_BIN="/usr/bin/elleriumd"
+
+# Nice value to run elleriumd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

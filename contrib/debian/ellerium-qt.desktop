@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Ellerium
+Comment=Ellerium P2P Cryptocurrency
+Comment[fr]=Ellerium, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Ellerium, eşten eşe kriptografik sanal para birimi
+Exec=ellerium-qt %u
+Terminal=false
+Type=Application
+Icon=ellerium128
+MimeType=x-scheme-handler/ellerium;
+Categories=Office;Finance;

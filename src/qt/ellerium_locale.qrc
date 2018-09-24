@@ -1,0 +1,20 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/ellerium_bg.qm</file>
+        <file alias="de">locale/ellerium_de.qm</file>
+        <file alias="en">locale/ellerium_en.qm</file>
+        <file alias="es">locale/ellerium_es.qm</file>
+        <file alias="fi">locale/ellerium_fi.qm</file>
+        <file alias="fr">locale/ellerium_fr.qm</file>
+        <file alias="it">locale/ellerium_it.qm</file>
+        <file alias="ja">locale/ellerium_ja.qm</file>
+        <file alias="pl">locale/ellerium_pl.qm</file>
+        <file alias="pt">locale/ellerium_pt.qm</file>
+        <file alias="ru">locale/ellerium_ru.qm</file>
+        <file alias="sk">locale/ellerium_sk.qm</file>
+        <file alias="sv">locale/ellerium_sv.qm</file>
+        <file alias="vi">locale/ellerium_vi.qm</file>
+        <file alias="zh_CN">locale/ellerium_zh_CN.qm</file>
+        <file alias="zh_TW">locale/ellerium_zh_TW.qm</file>
+    </qresource>
+</RCC>
