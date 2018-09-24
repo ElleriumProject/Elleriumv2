@@ -1,50 +1,47 @@
-[![Build Status](https://travis-ci.org/elleriumcoin/ellerium-core.svg?branch=master)](https://travis-ci.org/elleriumcoin/ellerium-core) [![GitHub Version](https://badge.fury.io/gh/elleriumcoin%2Fellerium-core.svg)](https://badge.fury.io/gh/elleriumcoin/ellerium-core)
+To build dependencies for the current arch+OS:
 
-Ellerium is a universal 3rd generation cryptocurrency that combines the best features of different coins
-in order to create an excellent new digital payment and storage asset.
+make
 
-Anonymized transactions using coin mixing technology. 1-Second-Transactions. Network stability with masternodes, each is secured with a collateral of 10,000 ELP. 100% Governance.
+To build for another arch/OS:
 
-For further information visit us at [elleriumcoin.org](http://www.elleriumcoin.org/) or visit our ANN thread at [BitcoinTalk](https://bitcointalk.org/index.php?topic=2976421)
+make HOST=host-platform-triplet
 
-# Coin Specs
+For example:
 
- - PoW Algorithm: Quark
- - Premine: (#1 Block) 120,001 ELP (0.19% of PoW) For 12 masternodes to secure the network.
- - PoW Blocks: 2 - 299,999
- - PoS Blocks: Starting from 300,000
- - Block Time: 60 Seconds
- - PoW Max Coin Output/Supply: 49,448,850
- - PoW Ending: ~ ca. 180 Days (Estimated: August 2018)
- - Masternode Requirements: 10,000 ELP
- - Maturity: 120 Confirmations
- - Prefix: Ellerium adresses start with the capital letter "X"
+make HOST=x86_64-w64-mingw32 -j4
 
-# PoW Reward Distribution
+A prefix will be generated that's suitable for plugging into Bitcoin's configure. In the above example, a dir named x86_64-w64-mingw32 will be created. To use it for Bitcoin:
 
-Proof of Work block rewards.
+./configure --prefix=`pwd`/depends/x86_64-w64-mingw32
 
-<table>
-<tr><th>Block Height</th><th>Reward Amount</th><th>Masternodes</th><th>Miners</th><th>Governance</th></tr>
-<tr><td>Block 2 - 40,999</td><td>200 ELP</td><td>20%</td><td>80%</td><td>10%</td></tr>
-<tr><td>Block 41,000 - 81,889</td><td>200 ELP</td><td>75%</td><td>25%</td><td>10%</td></tr>
-<tr><td>Block 81,890 - 88,999</td><td>200 ELP</td><td>67.5%</td><td>22.5%</td><td>10%</td></tr>
-<tr><td>Block 89,000 - 299,999</td><td>150 ELP</td><td>67.5%</td><td>22.5%</td><td>10%</td></tr>
-</table>
+Common host-platform-triplets for cross compilation are:
 
-# PoS Block Rewards
+    i686-w64-mingw32 for Win32
+    x86_64-w64-mingw32 for Win64
+    x86_64-apple-darwin11 for MacOSX
+    arm-linux-gnueabihf for Linux ARM 32 bit
+    aarch64-linux-gnu for Linux ARM 64 bit
 
-Proof of Stake will automatically be enabled at block 475201.
+No other options are needed, the paths are automatically configured.
 
-<table>
-<tr><th>Block Height</th><th>Reward Amount</th></tr>
-<tr><td>Block 300,000 - 399,999</td><td>100 ELP</td></tr>
-<tr><td>Block 400,000 - 459,999</td><td>50 ELP</td></tr>
-<tr><td>Block 460,000 - 519,999</td><td>25 ELP</td></tr>
-<tr><td>Block 520,000 - 579,999</td><td>15 ELP</td></tr>
-<tr><td>Block 580,000 - infinite</td><td>7 ELP</td></tr>
-</table>
+Dependency Options: The following can be set when running make: make FOO=bar
 
-Masternode and staker rewards with PoS:
- - Masternodes and stakers will receive split reward allocation when PoS sets in.
- - This means the more masternodes are in the system, the more staking gets attractive and vice versa.
+SOURCES_PATH: downloaded sources will be placed here
+BASE_CACHE: built packages will be placed here
+SDK_PATH: Path where sdk's can be found (used by OSX)
+FALLBACK_DOWNLOAD_PATH: If a source file can't be fetched, try here before giving up
+NO_QT: Don't download/build/cache qt and its dependencies
+NO_WALLET: Don't download/build/cache libs needed to enable the wallet
+NO_UPNP: Don't download/build/cache packages needed for enabling upnp
+DEBUG: disable some optimizations and enable more runtime checking
+HOST_ID_SALT: Optional salt to use when generating host package ids
+BUILD_ID_SALT: Optional salt to use when generating build package ids
+
+If some packages are not built, for example make NO_WALLET=1, the appropriate options will be passed to bitcoin's configure. In this case, --disable-wallet.
+
+Additional targets:
+
+download: run 'make download' to fetch all sources without building them
+download-osx: run 'make download-osx' to fetch all sources needed for osx builds
+download-win: run 'make download-win' to fetch all sources needed for win builds
+download-linux: run 'make download-linux' to fetch all sources needed for linux builds
